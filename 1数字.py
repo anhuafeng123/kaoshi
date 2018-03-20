@@ -5,10 +5,11 @@ class HuYouJia_Num(object):
 		self.HuYouJia_sum1 = 0
 		self.HuYouJia_list = []
 		self.HuYouJia_dic = {}
-		self.HuYouJia_count =0
+		
 		self.HuYouJia_count1 = 1
 
 	def HuYouJia_cai(self):
+		self.HuYouJia_count = 1
 		i = random.randint(0, 100)
 		while True:
 			player = int(input("输入你猜的数字")) 
@@ -20,19 +21,19 @@ class HuYouJia_Num(object):
 				print("猜的太小了哈哈")
 				self.HuYouJia_count+=1
 			if player == i:
-				print("哇,猜中了")
-				print("你一共猜了%d次才猜中!"%self.HuYouJia_count)
 				self.HuYouJia_count1+=1
+				print("哇,猜中了")
+				self.HuYouJia_dic = {self.HuYouJia_count1 - 1:self.HuYouJia_count}
+				self.HuYouJia_list.append(self.HuYouJia_dic)
+				
 				o = int(input("请问您还要继续玩吗\n1.继续  2.退出"))
 				if o == 1:
 					print("又开始喽")
-					self.HuYouJia_dic = {self.HuYouJia_count1 - 1:self.HuYouJia_count}
-					self.HuYouJia_list.append(self.HuYouJia_dic)
+					self.HuYouJia_count =0
 					print(self.HuYouJia_list)
 					continue
 				if o == 2:
-					self.HuYouJia_dic = {self.HuYouJia_count1 - 1:self.HuYouJia_count}
-					self.HuYouJia_list.append(self.HuYouJia_dic)
+					
 					print("你一共玩了%d次"%(self.HuYouJia_count1-1))
 					for i in self.HuYouJia_list:
 						for k,v in i.items():
