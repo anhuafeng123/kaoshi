@@ -1,3 +1,4 @@
+#牛不克拉斯
 import random
 class HuYouJia_Num(object):
 	def __init__(self):
